@@ -1,3 +1,50 @@
-<div class="">
-    <h1>{{trade.title}}</h1>
+<div *ngIf="trade">
+    <header class="body-header">
+        <div class="header-fl col-12" style="min-height: 4em">
+        <div class="col-9 float-left">
+            <h1>{{trade.title}}</h1>
+        </div>
+        <div class="float-right" style="line-height: 44px">
+            <span class="star" [class.full]="trade.like" (click)="changelike()">&hearts;</span>
+        </div>
+        </div>
+        <div class="float-left">
+            <span>
+                发布时间: {{trade.create_time | date:'yyyy/MM/dd hh:mm:ss'}}
+            </span>
+            <span>
+                发布人: {{trade.creator_name}}
+            </span>
+            <span class="span-active" *ngIf="trade.active">
+                    正在进行
+            </span>
+            <span class="span-nonactive" *ngIf="!trade.active">
+                    暂停
+            </span>
+        </div>
+        <div class="float-right" *ngIf="isCreator()">
+            <button class="btn btn-primary" (click)="updateTrade()">修改</button>
+            <button class="btn btn-primary" (click)="changeActive()">{{trade.active}}</button>
+            <button class="btn btn-primary" (click)="deleteTrade()">删除</button>
+        </div>
+    </header>
+    <div class="body-divider">
+        <h3>描述</h3>
+    </div>
+    <div *ngIf="!trade.description.Valid" class="body-content">
+        <h4>
+            暂无描述
+        </h4>
+    </div>
+    <div *ngIf="trade.description.Valid" class="body-content">
+        <p>
+            {{trade.description.String}}
+        </p>
+    </div>
+    <div class="body-divider">
+        <h3>评论</h3>
+    </div>
+    <div class="body-content">
+        <my-comment [trade]="trade"></my-comment>
+    </div>
 </div>

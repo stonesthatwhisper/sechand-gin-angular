@@ -15,8 +15,8 @@ export class AuthenticationService {
     login(username: string, password: string) {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this.http.post(':8088/api/authenticate', JSON.stringify({username: username, password: password}), options)
-            .map((response: Response) => {
+        return this.http.post('http://localhost:8088/api/authenticate', JSON.stringify({username: username, password: password}), options)
+            .map(response => {
             let user = response.json();
             if (user && user.token) {
                 localStorage.setItem('currentUser', JSON.stringify(user));

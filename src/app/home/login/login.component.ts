@@ -3,8 +3,8 @@
  */
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
-import {AuthenticationService} from "../_service/authentication.service";
-import {AlertService} from "../_service/alert.service";
+import {AuthenticationService} from "../../_service/authentication.service";
+import {AlertService} from "../../_service/alert.service";
 
 @Component({
     moduleId: module.id.toString(),

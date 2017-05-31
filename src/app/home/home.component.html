@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div class="container-fluid">
+    <header class="col-12">
+        heihei
+    </header>
+    <div class="col-12">
+    <div class="col-8 float-left p-0 m-0">
+    <ngb-carousel>
+        <ng-template ngbSlide>
+            <img src="../../assets/img/home-img1.jpeg" alt="欢迎" height="600px" width="100%" />
+            <div class="carousel-caption">
+                <h3>复旦二手信息发布平台</h3>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <img src="../../assets/img/home-img2.jpeg" alt="欢迎" height="600px" width="100%" />
+            <div class="carousel-caption">
+                <h3>复旦二手信息发布平台</h3>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+    </div>
+    </div>
+    <div class="jumbotron float-left ml-3">
+            <div class="col-sm-8 col-sm-offset-2">
+                <my-alert></my-alert>
+                <router-outlet></router-outlet>
+            </div>
+    </div>
+    <footer class="col-12 float-left">
+        heihei
+    </footer>
+</div>

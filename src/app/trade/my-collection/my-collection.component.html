@@ -1,0 +1,42 @@
+<header class="body-header">
+    <div class="header-fl col-12" style="min-height: 4em;">
+        <div class="float-left col-6">
+            <h1>我的收藏</h1>
+        </div>
+        <div class="float-right">
+            <label> 搜索标题：</label>
+            <input type="text" placeholder="title" style="line-height: 2em"/>
+            <label for="active" class="ml-4"> 活动的 </label>
+            <input type="checkbox" checked="checked" name="active" />
+        </div>
+    </div>
+    <div class="float-left ml-3">
+        <button (click)="postsell()" class="btn btn-primary ml-2">我要卖</button>
+        <button (click)="postbuy()" class="btn btn-primary ml-2">我想买</button>
+    </div>
+</header>
+<div *ngIf="pagedTrades">
+    <div>
+        <ul class="body-list">
+            <li *ngFor="let trade of pagedTrades">
+                <div class="row width-full m-0">
+                    <div class="pl-4 pt-4 pb-4">
+                        <div class="float-left mr-4"><p class="m-0" style="line-height: 48px;">{{trade.sell | BoolToSell}}</p></div>
+                        <div class="float-left">
+                            <a [routerLink]="['/trade/' + trade.id]">{{trade.title}}</a>
+                        </div>
+                        <div class="float-right">
+                            <span>发布人: {{trade.creator_name}}</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="body-page">
+        <ngb-pagination [collectionSize]="collectionSize" [page]="currentPage" (pageChange)="setPage($event)"></ngb-pagination>
+    </div>
+</div>
+<div *ngIf="!pagedTrades" class="body-content">
+    <h4>暂无收藏</h4>
+</div>

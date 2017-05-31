@@ -1,0 +1,25 @@
+<header class="body-header">
+    <div class="float-left">
+        <h1>修改发布信息</h1>
+    </div>
+    <div class="float-right">
+        <button (click)="submit()" [disabled]="submitting" class="btn btn-primary">确认修改</button>
+    </div>
+</header>
+<div *ngIf="trade">
+<div class="body-divider">
+    <h4>标题</h4>
+</div>
+<div class="body-post-title mt-4 mb-4">
+    <input name="title" type="text" placeholder="标题" [(ngModel)]="trade.title" [disabled]="submitting" class="form-control p-3" #title="ngModel" required/>
+</div>
+<div class="body-divider">
+    <h4>描述</h4>
+</div>
+<div class="body-post-description mt-4 mb-4">
+    <textarea placeholder="描述" [(ngModel)]="trade.description.String" [disabled]="submitting" class="form-control p-3 description-input"></textarea>
+</div>
+<div class="body-divider" *ngIf="trade.sell">
+    <h4>上传图片</h4>
+</div>
+</div>

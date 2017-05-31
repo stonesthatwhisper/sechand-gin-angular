@@ -4,9 +4,11 @@
 
 export class Trade {
     id: number;
+    creator_id: number;
     sell: boolean;
     active: boolean;
     title: string;
-    descriptUrl: string;
-    createDate: string;
+    description: string;
+    image_url: string;
+    create_time: string;
 }

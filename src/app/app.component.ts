@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgbPaginationConfig } from "@ng-bootstrap/ng-bootstrap";
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+    constructor(
+        config: NgbPaginationConfig
+    ) {
+        config.size = 'lg';
+        config.pageSize = 15;
+        config.boundaryLinks = true;
+        config.rotate = true;
+        config.maxSize = 10;
+        config.ellipses = false;
+    }
 }

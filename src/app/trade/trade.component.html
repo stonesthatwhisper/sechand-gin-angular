@@ -1,10 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<nav class="side-nav">
+    <div class="side-scroll">
+        <div class="side-profile">
+            <a routerLink="/trade">
+            <h1>
+                FDU<br/>二手交易<br/>信息平台
+            </h1>
+            </a>
+            <p class="mt-3">欢迎，{{user.username}}</p>
+        </div>
+        <ul class="side-list">
+            <li class="side-list-item">
+                <a class="side-link" routerLink="/trade/all" routerLinkActive="active">
+                    <i class="icon-home"></i>
+                    所有发布
+                </a>
+            </li>
+            <li class="side-list-item">
+                <a class="side-link" routerLink="/trade/mylist" routerLinkActive="active">
+                    <i class="icon-doc-text"></i>
+                    我的发布
+                </a>
+            </li>
+            <li class="side-list-item">
+                <a class="side-link" routerLink="/trade/mycollection" routerLinkActive="active">
+                    <i class="icon-heart"></i>
+                    我的收藏
+                </a>
+            </li>
+            <li class="side-list-item">
+                <a class="side-link" routerLink="/trade/myinfo" routerLinkActive="active">
+                    <i class="icon-user"></i>
+                    我的信息
+                </a>
+            </li>
+        </ul>
+        <div class="side-bottom">
+            <a class="btn btn-link" (click)="logout()" href="javascript: void(0)">
+                <i class="icon-logout"></i>
+                退出登录
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="main-body">
+    <router-outlet></router-outlet>
+</div>

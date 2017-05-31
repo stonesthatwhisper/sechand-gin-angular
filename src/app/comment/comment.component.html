@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div *ngIf="trade">
+    <my-alert></my-alert>
+    <div *ngIf="!comments || comments.length == 0" class="comment pb-2">
+        <h4>暂无评论</h4>
+    </div>
+    <div *ngIf="comments && comments.length > 0" class="comment">
+        <ul class="comment-list">
+            <li *ngFor="let comment of comments">
+                <div [class.addmargin]="isSelected(comment)" [class.smallmargin]="!isSelected(comment)">
+                <div class="col-12">
+                    <comment-part [content]="comment.content" [creator_id]="trade.creator_id" [from_name]="comment.from_name" [from_uid]="comment.from_uid" [to_name]="comment.to_name" [to_uid]="comment.to_uid">
+                    </comment-part>
+                </div>
+                <div class="float-right ml-5">
+                    <a href="javascript: void(0)" (click)="show(comment)" class="btn btn-link">回复</a>
+                    <a *ngIf="myComment(comment)" (click)="deleteComment(comment)" class="btn btn-link" href="javascript: void(0)">删除</a>
+                </div>
+                <div [class.nontargeted]="isSelected(comment)" class="pl-2 pr-2">
+                    <textarea [(ngModel)]="subComment" class="form-control"></textarea>
+                    <button (click)="sendSubComment()" type="submit" class="btn btn-primary mt-3">发表回复</button>
+                </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="main-comment">
+        <textarea [(ngModel)]="mainComment" class="form-control"></textarea>
+        <button (click)="sendMainComment()" type="submit" class="btn btn-primary mt-3">发表评论</button>
+    </div>
+</div>

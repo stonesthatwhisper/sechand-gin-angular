@@ -1,1 +1,327 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{
+    display:block
+}
+
+html{
+    font-size:100%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust:100%;
+    -ms-text-size-adjust:100%
+    }
+
+body{
+    margin:0;
+}
+
+.sechand-body {
+    min-height: 100%;
+    display: block;
+}
+
+.body-search input {
+    display: inline-block;
+}
+
+.body-content {
+    padding-left: 10%;
+    padding-top: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+}
+
+.body-header {
+    box-sizing: border-box;
+    z-index: 2;
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-width: 100%;
+    margin: 0;
+    padding-left: 324px;
+    overflow: auto;
+    padding-top: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+    line-height: 56px;
+    height: 156px;
+    background-color: rgb(176, 190, 197);
+    color: rgb(255, 255, 255);
+}
+
+.body-header span {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0 5px;
+    border-left: solid rgba(0, 0, 0, 0.21) 1px;
+    border-right: solid rgba(0, 0, 0, 0.21) 1px;
+}
+
+.body-divider {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: rgba(236, 239, 241, 0.56);
+    color: #607D90;
+}
+
+.body-divider h1, h2, h3, h4 {
+    margin: 0;
+}
+
+.side-nav {
+    position: fixed;
+    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24);
+    top: 0;
+    left: 0;
+    width: 300px;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: rgb(25, 118, 210);
+    color: rgb(255, 255, 255);
+    z-index: 4;
+}
+
+.side-nav a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.side-scroll {
+    padding: 0px;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100%;
+}
+
+.main-body {
+    padding-top: 156px;
+    padding-left: 300px;
+}
+
+.side-profile {
+    padding: 24px 8px 24px 8px;
+    text-align: center;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #2ba3ff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.11);
+}
+
+.side-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-list li {
+    color: #FFFFFF;
+}
+
+.side-list li:hover {
+
+}
+
+.side-list a {
+    text-decoration: none!important;
+    display: block;
+    box-sizing: border-box;
+    color: #ffffff;
+    padding: 8px 24px;
+    line-height: 48px;
+    position: relative;
+    width: 100%;
+}
+
+.side-list a:hover {
+    text-decoration: none!important;
+    color: #ffffff;
+    background-color: #2ba3ff;
+    border-left: solid 4px #ffffff;
+}
+
+.side-list .active {
+    color: #ffffff;
+    background-color: #2ba3ff;
+    border-left: solid 4px #ffffff;
+}
+
+
+.by:before {
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    font-family: "entypo";
+    speak: none;
+    font-size: 100%;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+}
+
+.bgy:before {
+    content: "\EAB5";
+}
+
+
+
+.body-page {
+    margin: 20px 10px;
+}
+
+.body-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.body-list li {
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(207, 216, 220, 0.56);
+    line-height: 48px;
+    color: #000000;
+}
+
+.body-list li:hover {
+    background-color: #f6f8fa;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.21);
+}
+
+
+.body-list a {
+    text-decoration: none;
+    line-height: 48px;
+    position: relative;
+    display: block;
+    color: #000000;
+}
+
+.body-list a:hover {
+    color: #2ba3ff;
+}
+
+.body-post-title {
+    padding: 0 48px;
+}
+
+.body-post-description {
+    padding: 0 48px;
+}
+
+.comment {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(207, 216, 220, 0.56);
+}
+
+.comment-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.comment-list li {
+    display: block;
+    border-bottom-width: 1px;
+    border-bottom-style: dashed;
+    border-bottom-color: rgba(207, 216, 220, 0.56);
+}
+
+.comment-list .nontargeted {
+    display: none;
+}
+
+.comment-list .addmargin {
+    margin: 0 0 4em 0;
+}
+
+.comment-list .smallmargin {
+    margin: 0 0 1em 0;
+}
+
+.width-full {
+    width: 100%;
+}
+
+.table-fixed {
+    table-layout: fixed;
+}
+
+.span-active {
+    line-height: 2;
+    background-color: green;
+    color: #FFFFFF;
+    border-width: 0;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: cadetblue;
+    margin: 0;
+    font-size: 20px;
+}
+
+.span-nonactive {
+    line-height: 2;
+    background-color: red;
+    color: #ffffff;
+    border-width: 0;
+    border-radius: 2px;
+    border-style: solid;
+    margin: 0;
+    font-size: 20px;
+}
+
+.main-comment {
+    margin-top: 24px;
+}
+
+.header-fl {
+    vertical-align: middle;
+}
+
+.comment-box {
+    line-height: 2em;
+    border-width: 1px;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.24);
+    background-color: rgba(43, 163, 255, 0.24);
+}
+
+.star {
+    border-left: none!important;
+    border-right: none!important;
+    position: relative;
+    display: inline-block;
+    font-size: 3rem;
+    color: #d3d3d3;
+}
+.full {
+    color: rgb(25, 118, 210);
+}
+
+.description-input {
+    line-height: 1.6;
+    min-height: 100px;
+}
+
+.side-bottom {
+    position: fixed;
+    bottom: 0;
+}
+
+.side-bottom a:hover {
+     color: #ffffff;
+}

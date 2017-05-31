@@ -4,7 +4,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AlertService, UserService } from '../auth/index';
+import { AlertService, UserService } from '../../auth/index';
 
 @Component({
     moduleId: module.id.toString(),
