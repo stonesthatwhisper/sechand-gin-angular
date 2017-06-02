@@ -17,7 +17,7 @@
                 </div>
                 <div [class.nontargeted]="isSelected(comment)" class="pl-2 pr-2">
                     <textarea [(ngModel)]="subComment" class="form-control"></textarea>
-                    <button (click)="sendSubComment()" type="submit" class="btn btn-primary mt-3">发表回复</button>
+                    <button (click)="sendSubComment()" type="submit" class="btn btn-primary mt-3">发表回复<i class="icon-reply"></i></button>
                 </div>
                 </div>
             </li>
@@ -25,6 +25,6 @@
     </div>
     <div class="main-comment">
         <textarea [(ngModel)]="mainComment" class="form-control"></textarea>
-        <button (click)="sendMainComment()" type="submit" class="btn btn-primary mt-3">发表评论</button>
+        <button (click)="sendMainComment()" type="submit" class="btn btn-primary mt-3">发表评论<i class="icon-comment"></i></button>
     </div>
 </div>

@@ -37,4 +37,11 @@ export class UserService {
             return new RequestOptions({ headers: headers});
         }
     }
+
+    token() {
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (currentUser && currentUser.token) {
+            return currentUser.token;
+        }
+    }
 }

@@ -1,4 +1,5 @@
 <div *ngIf="trade">
+    <!--
     <header class="body-header">
         <div class="header-fl col-12" style="min-height: 4em">
         <div class="col-9 float-left">
@@ -28,23 +29,63 @@
             <button class="btn btn-primary" (click)="deleteTrade()">删除</button>
         </div>
     </header>
-    <div class="body-divider">
+    -->
+    <header class="detail-title">
+        <div class="col-12" style="min-height: 4em">
+            <div class="col-9 float-left">
+                <h1>{{trade.title}}</h1>
+            </div>
+            <div class="float-right" style="line-height: 44px">
+                <a class="btn btn-link" [routerLink]="['/trade/user/' + trade.creator_id]">
+                    <i class="icon-chat">发送私信</i>
+                </a>
+                <a title data-toggle="tooltip" data-placement="left" data-container="body" data-original-title="shouchang" href="javascript: void(0)" (click)="changelike()">
+                    <i class="icon-heart star" [class.full]="trade.like" ></i>
+                </a>
+            </div>
+        </div>
+        <div class="float-left col-12">
+            <span class="ml-3">
+                发布时间: {{trade.create_time | date:'short'}}
+            </span>
+            <span class="ml-3">
+                发布人: {{trade.creator_name}}
+            </span>
+            <span class="span-active ml-3 float-right" *ngIf="trade.active">
+                    正在进行
+            </span>
+            <span class="span-nonactive ml-3 float-right" *ngIf="!trade.active">
+                    已结束
+            </span>
+            <a href="javascript:;" class="btn btn-link float-right" *ngIf="isAdmin()" (click)="deleteTrade()">删除</a>
+            <a href="javascript:;" class="btn btn-link float-right" *ngIf="isCreator() && trade.active" (click)="tradeOver()">已结束</a>
+            <a href="javascript:;" class="btn btn-link float-right" *ngIf="isCreator()" [routerLink]="['/trade/update/' + trade.id]">修改</a>
+        </div>
+    </header>
+    <div class="body-content">
         <h3>描述</h3>
-    </div>
-    <div *ngIf="!trade.description.Valid" class="body-content">
-        <h4>
+    <div class="body-subcontent">
+        <h4 *ngIf="!trade.description.Valid" >
             暂无描述
         </h4>
-    </div>
-    <div *ngIf="trade.description.Valid" class="body-content">
-        <p>
+        <p *ngIf="trade.description.Valid">
             {{trade.description.String}}
         </p>
     </div>
-    <div class="body-divider">
-        <h3>评论</h3>
-    </div>
-    <div class="body-content">
+        <h3>图片</h3>
+        <div class="body-subcontent">
+            <h4 *ngIf="!imageUrl || imageUrl.length == 0">
+                暂无图片
+            </h4>
+            <div *ngIf="imageUrl && imageUrl.length > 0">
+                <div *ngFor="let iurl of imageUrl">
+                    <img src="{{'http://localhost:8088/' + iurl}}" alt width="800px">
+                </div>
+            </div>
+        </div>
+    <h3>评论</h3>
+    <div class="body-subcontent">
         <my-comment [trade]="trade"></my-comment>
+    </div>
     </div>
 </div>

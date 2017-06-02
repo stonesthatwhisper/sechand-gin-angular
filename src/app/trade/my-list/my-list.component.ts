@@ -30,9 +30,11 @@ export class MyListComponent {
         this.tradeService.getTradesById(this.userService.getCurrentUser().id).subscribe(
             data => {
                 console.log(data);
-                this.allTrade = data;
-                this.collectionSize = data.length;
-                this.setPage(this.currentPage);
+                if(data) {
+                    this.allTrade = data;
+                    this.collectionSize = data.length;
+                    this.setPage(this.currentPage);
+                }
             },
             error2 => {
                 this.errMsg = error2._body;

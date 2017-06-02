@@ -18,6 +18,7 @@ import {UserService} from "../../_service/user.service";
 export class TradeDetailComponent implements OnInit {
     //TODO
     private trade: any;
+    private imageUrl: any[];
 
     constructor(
         private tradeService: TradeService,
@@ -38,16 +39,29 @@ export class TradeDetailComponent implements OnInit {
         this.tradeService.checkCollectionById(this.userService.getCurrentUser().id, this.route.snapshot.params['id']).toPromise().then(
             data => {
                 console.log('haha');
-                this.trade.like = (data == 'true');
+                if (this.trade)
+                    this.trade.like = (data == 'true');
             },
             error2 => {
                 console.log(error2);
             }
-        )
+        );
+        this.tradeService.getImageUrlById(this.route.snapshot.params['id']).toPromise().then(
+            data => {
+                    this.imageUrl = data.image_url;
+            },
+            error2 => {
+                console.log(error2);
+            }
+        );
     }
 
     isCreator() {
         return this.trade.creator_id === this.userService.getCurrentUser().id;
+    }
+
+    isAdmin() {
+        return this.userService.getCurrentUser().admin;
     }
 
     deleteTrade() {
@@ -68,20 +82,32 @@ export class TradeDetailComponent implements OnInit {
     }
 
     changelike() {
+        console.log(this.trade.like);
         if (this.trade.like) {
             this.tradeService.changeCollectionById(this.userService.getCurrentUser().id, this.trade.id, 0).subscribe(
                 data => {
                     this.router.navigate(['/trade/' + this.trade.id]);
-                    //location.reload();
+                    location.reload();
                 }
             );
         } else {
             this.tradeService.changeCollectionById(this.userService.getCurrentUser().id, this.trade.id, 1).subscribe(
                 data => {
                     this.router.navigate(['/trade/' + this.trade.id]);
-                    //location.reload();
+                    location.reload();
                 }
             );
         }
+    }
+
+    tradeOver() {
+        this.tradeService.setTradeActiveById(this.trade.id).subscribe(
+            data => {
+                location.reload();
+            },
+            error2 => {
+                console.log(error2);
+            }
+        );
     }
 }

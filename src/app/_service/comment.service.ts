@@ -29,6 +29,14 @@ export class CommentService {
         return this.http.delete('http://localhost:8088/api/comments/' + id, this.jwt()).map(response => response.text());
     }
 
+    getSendCommentById(id: number) {
+        return this.http.get('http://localhost:8088/api/comment/send/' + id, this.jwt()).map(response => response.json());
+    }
+
+    getReceCommentById(id: number) {
+        return this.http.get('http://localhost:8088/api/comment/rece/' + id, this.jwt()).map(response => response.json());
+    }
+
     private jwt() {
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentUser && currentUser.token) {

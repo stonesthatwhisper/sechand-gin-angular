@@ -8,4 +8,5 @@ export class User {
     password: string;
     name: string;
     student_id: number;
+    admin: boolean;
 }

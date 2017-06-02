@@ -2,9 +2,7 @@
     <div class="side-scroll">
         <div class="side-profile">
             <a routerLink="/trade">
-            <h1>
-                FDU<br/>二手交易<br/>信息平台
-            </h1>
+                <img src={{user.avatarUrl}} alt class="wc">
             </a>
             <p class="mt-3">欢迎，{{user.username}}</p>
         </div>
@@ -28,9 +26,21 @@
                 </a>
             </li>
             <li class="side-list-item">
+                <a class="side-link" routerLink="/trade/mycomment" routerLinkActive="active">
+                    <i class="icon-comment"></i>
+                    我的评论
+                </a>
+            </li>
+            <li class="side-list-item">
+                <a class="side-link" routerLink="/trade/mymessage" routerLinkActive="active">
+                    <i class="icon-mail"></i>
+                    我的私信
+                </a>
+            </li>
+            <li class="side-list-item">
                 <a class="side-link" routerLink="/trade/myinfo" routerLinkActive="active">
                     <i class="icon-user"></i>
-                    我的信息
+                    我的账户
                 </a>
             </li>
         </ul>
@@ -40,6 +50,22 @@
                 退出登录
             </a>
         </div>
+    </div>
+</nav>
+<nav class="top-nav">
+    <div class="float-left fl">
+        发布<i class="icon-plus-squared"></i>
+    </div>
+    <div class="float-left fl">
+        <a routerLink="/trade/post/sell">
+            <button class="btn btn-success ml-2 pl-5 pr-5">我要卖</button>
+        </a>
+        <a routerLink="/trade/post/buy">
+            <button class="btn btn-danger ml-2 pl-5 pr-5">我想买</button>
+        </a>
+    </div>
+    <div class="float-right">
+        <span>复旦二手信息发布平台</span>
     </div>
 </nav>
 <div class="main-body">

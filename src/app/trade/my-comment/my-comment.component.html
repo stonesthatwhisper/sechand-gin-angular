@@ -1,0 +1,40 @@
+<ngb-tabset>
+    <ngb-tab title="我收到的">
+        <ng-template ngbTabContent>
+            <div *ngIf="myReceive">
+                <div *ngFor="let rcv of myReceive" class="msg-title">
+                    <a [routerLink]="['/trade/' + rcv.trade_id]">
+                    <div class="msg-people-wc">
+                        <img src="{{'http://localhost:8088/static/avatar/'+rcv.from_name+'-avatar.jpg'}}" alt />
+                    </div>
+                    <div class="msg-people-name">
+                        {{rcv.from_name}}:{{rcv.content}}
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <div *ngIf="!myReceive" class="body-content">
+                <h3>没有收到的评论哦！</h3>
+            </div>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab title="我发出的">
+        <ng-template ngbTabContent>
+            <div *ngIf="mySend">
+                <div *ngFor="let send of mySend" class="msg-title">
+                    <a [routerLink]="['/trade/' + send.trade_id]">
+                    <div class="msg-people-wc">
+                        <img src="{{'http://localhost:8088/static/avatar/'+send.from_name+'-avatar.jpg'}}" alt />
+                    </div>
+                    <div class="msg-people-name">
+                        {{send.from_name}}:{{send.content}}
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <div *ngIf="!mySend" class="body-content">
+                <h3>没有发出的评论哦！</h3>
+            </div>
+        </ng-template>
+    </ngb-tab>
+</ngb-tabset>

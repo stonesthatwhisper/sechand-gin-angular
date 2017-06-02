@@ -11,6 +11,9 @@ import { MyListComponent } from './my-list/my-list.component';
 import { MyCollectionComponent } from './my-collection/my-collection.component';
 import { MyInfoComponent } from './my-info/my-info.component';
 import {TradeUpdateComponent} from "./update/update.component";
+import { MyMessageComponent } from './my-message/my-message.component';
+import {UserComponent} from "./user/user.component";
+import {MyCommentComponent} from "./my-comment/my-comment.component";
 
 const tradeRoutes: Routes = [
     {
@@ -39,8 +42,20 @@ const tradeRoutes: Routes = [
                 component: MyInfoComponent
             },
             {
+                path: 'mymessage',
+                component: MyMessageComponent
+            },
+            {
+                path: 'mycomment',
+                component: MyCommentComponent
+            },
+            {
                 path: 'update/:id',
                 component: TradeUpdateComponent
+            },
+            {
+                path: 'user/:id',
+                component: UserComponent
             },
             {
                 path: ':id',

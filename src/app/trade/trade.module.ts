@@ -6,6 +6,7 @@ import {TradeDetailComponent} from "./detail/detail.component";
 import {TradeListComponent} from "./list/list.component";
 import {TradeRoutingModule} from "./trade.routing";
 import {FormsModule} from "@angular/forms";
+import { FileUploadModule } from "ng2-file-upload"
 
 import { TradeService } from "../_service/trade.service";
 import {TradeComponent} from "./trade.component";
@@ -25,6 +26,10 @@ import {AlertComponent} from "../alert/alert.component";
 import {AlertModule} from "../alert/alert.module";
 import {TradeUpdateComponent} from "./update/update.component";
 import {CommentPartComponent} from "../comment/comment-part.component";
+import {MessageService} from "../_service/message.service";
+import {MyMessageComponent} from "./my-message/my-message.component";
+import {UserComponent} from "./user/user.component";
+import {MyCommentComponent} from "./my-comment/my-comment.component";
 
 @NgModule({
     declarations: [
@@ -37,7 +42,10 @@ import {CommentPartComponent} from "../comment/comment-part.component";
         MyCollectionComponent,
         MyInfoComponent,
         TradeUpdateComponent,
-        CommentPartComponent
+        CommentPartComponent,
+        MyMessageComponent,
+        UserComponent,
+        MyCommentComponent
     ],
     imports: [
         NgbModule,
@@ -45,13 +53,15 @@ import {CommentPartComponent} from "../comment/comment-part.component";
         FormsModule,
         TradeRoutingModule,
         PipeModule,
-        AlertModule
+        AlertModule,
+        FileUploadModule
     ],
     providers: [
         UserService,
         TradeService,
         CommentService,
-        AlertService
+        AlertService,
+        MessageService
     ],
 })
 

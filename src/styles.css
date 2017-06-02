@@ -20,6 +20,34 @@ body{
     margin:0;
 }
 
+.top-nav {
+    vertical-align: middle;
+    margin-left: 300px;
+    margin-right: 0;
+    box-sizing: border-box;
+    z-index: 2;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    padding: 8px 24px;
+    height: 54px;
+    overflow: hidden;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.21);
+    background-color: rgb(245, 245, 245);
+    color: rgb(43, 43, 43);
+}
+
+.top-nav span {
+    margin: 0;
+    background-color: rgb(43, 43, 43);
+    padding: 3px 9px;
+    border-radius: 3px;;
+    line-height: 38px;
+    font-size: 26px;
+    color: #ffffff;
+}
+
 .sechand-body {
     min-height: 100%;
     display: block;
@@ -30,37 +58,35 @@ body{
 }
 
 .body-content {
-    padding-left: 10%;
-    padding-top: 10%;
-    padding-right: 10%;
-    padding-bottom: 10%;
+    padding: 48px 64px;
 }
 
 .body-header {
+    vertical-align: middle;
+    margin-left: 300px;
+    margin-right: 0;
     box-sizing: border-box;
     z-index: 2;
     position: fixed;
     left: 0;
     top: 0;
-    min-width: 100%;
-    margin: 0;
-    padding-left: 324px;
-    overflow: auto;
-    padding-top: 24px;
-    padding-right: 24px;
-    padding-bottom: 24px;
-    line-height: 56px;
-    height: 156px;
-    background-color: rgb(176, 190, 197);
-    color: rgb(255, 255, 255);
+    right: 0;
+    padding: 8px 24px;
+    height: 54px;
+    overflow: hidden;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.21);
+    background-color: rgb(245, 245, 245);
+    color: rgb(43, 43, 43);
 }
 
 .body-header span {
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 0 5px;
-    border-left: solid rgba(0, 0, 0, 0.21) 1px;
-    border-right: solid rgba(0, 0, 0, 0.21) 1px;
+    margin: 0;
+    background-color: rgb(43, 43, 43);
+    padding: 3px 9px;
+    border-radius: 3px;;
+    line-height: 38px;
+    font-size: 26px;
+    color: #ffffff;
 }
 
 .body-divider {
@@ -85,7 +111,8 @@ body{
     min-height: 100%;
     overflow-x: hidden;
     overflow-y: hidden;
-    background-color: rgb(25, 118, 210);
+    /*background-color: rgb(25, 118, 210);*/
+    background-color: rgb(43, 43, 43);
     color: rgb(255, 255, 255);
     z-index: 4;
 }
@@ -104,17 +131,20 @@ body{
 }
 
 .main-body {
-    padding-top: 156px;
+    padding-top: 54px;
     padding-left: 300px;
 }
 
 .side-profile {
     padding: 24px 8px 24px 8px;
     text-align: center;
-    border-bottom-width: 2px;
-    border-bottom-style: solid;
-    border-bottom-color: #2ba3ff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.11);
+}
+
+.side-profile .wc {
+    border-radius: 50%;
+    border: solid 2px #ffffff;
+    width: 60%;
 }
 
 .side-list {
@@ -145,13 +175,13 @@ body{
 .side-list a:hover {
     text-decoration: none!important;
     color: #ffffff;
-    background-color: #2ba3ff;
+    background-color: rgb(2, 117, 216);
     border-left: solid 4px #ffffff;
 }
 
 .side-list .active {
     color: #ffffff;
-    background-color: #2ba3ff;
+    background-color: rgb(2, 117, 216);
     border-left: solid 4px #ffffff;
 }
 
@@ -188,11 +218,22 @@ body{
 }
 
 .body-list li {
-    border-bottom: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: rgba(207, 216, 220, 0.56);
+    border-bottom: 1px solid rgba(207, 216, 220, 0.56);
     line-height: 48px;
+    min-height: 96px;
+    display: block;
     color: #000000;
+    vertical-align: middle;
+}
+
+.body-list li .content {
+    height: 100%;
+    min-height: 96px;
+}
+
+.body-list li .sell {
+    height: 100%;
+    line-height: 48px;
 }
 
 .body-list li:hover {
@@ -211,6 +252,15 @@ body{
 
 .body-list a:hover {
     color: #2ba3ff;
+}
+
+.list-sell {
+
+}
+
+.list-title {
+    min-height: 48px;
+    height: auto;
 }
 
 .body-post-title {
@@ -261,34 +311,30 @@ body{
 }
 
 .span-active {
-    line-height: 2;
+    line-height: 1.25;
     background-color: green;
     color: #FFFFFF;
-    border-width: 0;
-    border-radius: 2px;
-    border-style: solid;
-    border-color: cadetblue;
-    margin: 0;
+    border-radius: 3px;
     font-size: 20px;
+    padding: 4px 8px;
 }
 
 .span-nonactive {
-    line-height: 2;
-    background-color: red;
+    line-height: 1.25;
+    background-color: #777;
     color: #ffffff;
-    border-width: 0;
-    border-radius: 2px;
-    border-style: solid;
-    margin: 0;
-    font-size: 20px;
+    border-radius: 3px;
+    padding: 4px 8px;
 }
 
 .main-comment {
     margin-top: 24px;
 }
 
-.header-fl {
+.top-nav .fl {
     vertical-align: middle;
+    height: 38px;
+    line-height: 38px;
 }
 
 .comment-box {
@@ -324,4 +370,210 @@ body{
 
 .side-bottom a:hover {
      color: #ffffff;
+}
+
+.detail-title {
+    position: relative;
+    padding: 48px 48px 32px 48px;
+    height: 168px;
+    background-image: linear-gradient(145deg, rgb(245, 245, 245), rgb(255, 255, 255));
+}
+
+.body-subcontent {
+    padding: 12px;
+    border-radius: 4px;
+    background-color: rgb(245, 245, 245);
+    margin: 12px 15px 36px 15px;
+}
+
+.wc-2 {
+    max-width: 200px;
+    border-radius: 8px;
+    border: solid rgb(245, 245, 245) 4px;
+}
+
+.main-info {
+    margin-left: 200px;
+    padding: 24px;
+}
+
+.info-field {
+    display: block;
+    padding: 30px 0;
+    border-bottom: solid #ebeef5 1px;
+    margin-top: 0;
+    font-size: 16px;
+    line-height: 32px;
+}
+
+.info-field h3 {
+    display: block;
+    position: absolute;
+    font-size: 16px;
+    margin: 0;
+    line-height: 32px;
+}
+
+.info-field-content {
+    padding: 0 48px 0 100px;
+}
+
+.info-list {
+    list-style-type: none;
+}
+
+.upload-button {
+    position: relative;
+    width: 120px;
+    overflow: hidden;
+    z-index: 1;
+    display: inline-block;
+}
+
+.upload-button input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+    z-index: 3;
+    width: 120px;
+    height: 38px;
+}
+
+.msg-people {
+    position: relative;
+    padding: 12px 0 16px;
+    height: 128px;
+    border-bottom: solid rgb(245, 245, 245) 1px;
+    cursor: pointer;
+}
+
+.msg-people:hover {
+    background-color: rgb(245, 245, 245);
+}
+
+.msg-normal {
+    position: relative;
+    padding: 12px 0 16px;
+    height: 128px;
+    border-bottom: solid rgb(245, 245, 245) 1px;
+}
+
+.msg-people-wc {
+    float: left;
+    height: 100px;
+}
+
+.msg-people-wc img {
+    height: 100px;
+    border-radius: 50%;
+    border: solid rgb(43, 43, 43) 3px;
+}
+
+.msg-people-name {
+    text-decoration: none;
+    margin-left: 100px;
+    padding: 0 24px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.msg-title {
+    padding: 24px 48px 0 48px;
+}
+
+.msg-people-name-fl {
+    text-decoration: none;
+    margin-left: 120px;
+    padding: 0 24px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: 300;
+    vertical-align: middle;
+}
+
+.msg-people-name-fl span {
+    margin-top: 13px;
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    background-color: #777;
+}
+
+.msg-people-name-sl {
+    text-decoration: none;
+    margin-left: 120px;
+    padding: 0 24px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: 300;
+    border-radius: 4px;
+    background-color: rgb(245, 245, 245);
+}
+
+.header-list {
+    margin-top: 3px;
+    position: relative;
+    height: 45px;
+    padding: 2px 20px;
+    border-bottom: solid rgb(245, 245, 245) 2px;
+}
+
+.sf {
+    position: relative;
+    display: block;
+}
+
+.sf input {
+    padding-right: 35px;
+    display: block!important;
+}
+
+.sb {
+    position: absolute;
+    background-color: transparent;
+    border-style: none;
+    border-left: solid 1px rgb(242, 242, 242);
+    top: 4px;
+    right: 0;
+}
+
+.home-top {
+    height: 150px;
+    background-color: rgb(43, 43, 43);
+}
+.home-login {
+    position: absolute;
+    right: 0;
+    width: 30%;
+}
+
+.home-bottom {
+    height: 150px;
+    background-color: rgb(43, 43, 43);
+    display: none;
+}
+
+.home-pic {
+    position: absolute;
+    left: 0;
+    width: 70%;
+    height: 600px;
+}
+
+.list-status {
+    line-height: 64px;
 }

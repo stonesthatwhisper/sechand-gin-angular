@@ -1,0 +1,18 @@
+<header class="msg-title">
+    <h3>我的联系人</h3>
+</header>
+<div *ngIf="messager" class="body-content">
+    <div *ngFor="let people of messager" class="msg-people" >
+        <a [routerLink]="['/trade/user/'+ people.id]">
+        <div class="msg-people-wc">
+            <img src="{{'http://localhost:8088/static/avatar/'+people.username+'-avatar.jpg'}}" alt />
+        </div>
+        <div class="msg-people-name">
+            {{people.username}}
+        </div>
+        </a>
+    </div>
+</div>
+<div *ngIf="!messager" class="body-content">
+    <h4>你还没有任何消息。</h4>
+</div>

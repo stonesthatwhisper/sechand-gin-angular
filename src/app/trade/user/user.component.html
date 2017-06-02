@@ -1,0 +1,35 @@
+<div *ngIf="user">
+    <div class="body-content">
+        <div class="float-left">
+            <img src="{{'http://localhost:8088/static/avatar/'+user.username+'-avatar.jpg'}}" alt class="wc-2">
+        </div>
+        <div class="main-info">
+            <form class="info-field">
+                <h3>用户名</h3>
+                <div class="info-field-content">
+                    <span>{{user.username}}</span>
+                </div>
+            </form>
+        </div>
+        <div style="margin-top: 60px; border-top: solid rgb(245, 245, 245) 1px; padding-top:20px;">
+            <h3>私信记录</h3>
+            <div *ngFor="let message of messages" class="msg-normal">
+                <div class="msg-people-wc">
+                    <img src="{{'http://localhost:8088/static/avatar/'+message.from_name+'-avatar.jpg'}}" alt />
+                </div>
+                <div class="msg-people-name-fl">
+                    {{message.from_name}}:
+                    <span class="float-right">{{message.create_time | date:'short'}}</span>
+                </div>
+                <div class="msg-people-name-sl">
+                    {{message.content}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="privateMsg">发送私信</label>
+                <textarea class="form-control" id="privateMsg" rows="3" placeholder="..." [(ngModel)]="privateMsg"></textarea>
+                <button class="btn btn-primary mt-3" (click)="sendMsg()">发送<i class="icon-mail"></i> </button>
+            </div>
+        </div>
+    </div>
+</div>

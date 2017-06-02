@@ -7,8 +7,8 @@ export class Trade {
     creator_id: number;
     sell: boolean;
     active: boolean;
+    type: number;
     title: string;
     description: string;
-    image_url: string;
     create_time: string;
 }

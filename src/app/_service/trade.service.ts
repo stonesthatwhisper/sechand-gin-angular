@@ -46,12 +46,20 @@ export class TradeService {
         return this.http.post('http://localhost:8088/api/trade', trade, this.jwt()).map(response => response.text());
     }
 
+    setTradeActiveById(id: number) {
+        return this.http.get('http://localhost:8088/api/trades/unactive/' + id, this.jwt()).map(response => response.text());
+    }
+
     checkCollectionById(uid: number, tid: number) {
         return this.http.get('http://localhost:8088/api/collection/is?uid=' + uid + '&tid=' + tid, this.jwt()).map(response => response.text());
     }
 
     changeCollectionById(uid: number, tid:number, like: number) {
         return this.http.delete('http://localhost:8088/api/collections?uid=' + uid + '&tid=' + tid + '&like=' + like, this.jwt()).map(response => response.text());
+    }
+
+    getImageUrlById(tid: number) {
+        return this.http.get('http://localhost:8088/api/upload/img/' + tid).map(response => response.json());
     }
 
     private jwt() {

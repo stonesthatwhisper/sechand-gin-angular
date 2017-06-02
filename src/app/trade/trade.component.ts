@@ -20,6 +20,7 @@ export class TradeComponent implements OnInit {
 
     ngOnInit() {
         this.user = this.userService.getCurrentUser();
+        this.user.avatarUrl = "http://localhost:8088/static/avatar/" + this.user.username + "-avatar.jpg";
     }
 
     logout() {

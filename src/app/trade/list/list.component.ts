@@ -22,6 +22,10 @@ export class TradeListComponent implements OnInit {
     pagedTrades: Trade[];
     private collectionSize: number;
     private currentPage: number = 1;
+    filterTrades: Trade[];
+    private searchString: String;
+    private isActive: boolean = false;
+    private type: number = 0;
 
     constructor(
         private tradeService: TradeService,
@@ -40,10 +44,12 @@ export class TradeListComponent implements OnInit {
     ngOnInit() {
         this.tradeService.getTrades().subscribe(
             data => {
-                console.log(data);
                 this.allTrade = data;
-                this.collectionSize = data.length;
-                this.setPage(this.currentPage);
+                this.filterTrades = this.allTrade
+                if (this.filterTrades) {
+                    this.collectionSize = this.filterTrades.length;
+                    this.setPage(this.currentPage);
+                }
             },
             error2 => {
                 this.errMsg = error2._body;
@@ -59,15 +65,40 @@ export class TradeListComponent implements OnInit {
         console.log(this.currentPage);
         console.log(startIndex);
         console.log(endIndex);
-        this.pagedTrades = this.allTrade.slice(startIndex, endIndex + 1);
+        this.pagedTrades = this.filterTrades.slice(startIndex, endIndex + 1);
         console.log(this.pagedTrades);
     }
 
-
-    postsell() {
-        this.router.navigate(['/trade/post/' + true]);
+    searchFilter() {
+        if (!this.allTrade)
+            return;
+        this.filterTrades = this.allTrade.filter((item: any) => {
+            if (this.searchString && (item.title.indexOf(this.searchString) == -1)) {
+                return false;
+            }
+            if ((!item.active) && this.isActive) {
+                return false;
+            }
+            if (+this.type && (item.type !== +this.type)) {
+                return false;
+            }
+            return true;
+        });
+        this.collectionSize = this.filterTrades.length;
+        this.currentPage = 1;
+        this.setPage(this.currentPage);
     }
-    postbuy() {
-        this.router.navigate(['/trade/post/' + false]);
+    
+    selectType(value: any) {
+        this.type = value;
+        this.searchFilter();
+    }
+
+    searchChange(event: any) {
+        this.searchFilter();
+    }
+
+    selectActive(value: any) {
+        this.searchFilter();
     }
 }

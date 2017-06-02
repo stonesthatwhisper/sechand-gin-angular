@@ -36,6 +36,7 @@ export class TradeUpdateComponent implements OnInit {
 
     submit() {
         this.submitting = true;
+        this.trade.type = +this.trade.type;
         if (this.trade.description.String) {
             this.trade.description.Valid = true;
         } else {
