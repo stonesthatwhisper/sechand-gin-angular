@@ -1,35 +1,4 @@
 <div *ngIf="trade">
-    <!--
-    <header class="body-header">
-        <div class="header-fl col-12" style="min-height: 4em">
-        <div class="col-9 float-left">
-            <h1>{{trade.title}}</h1>
-        </div>
-        <div class="float-right" style="line-height: 44px">
-            <span class="star" [class.full]="trade.like" (click)="changelike()">&hearts;</span>
-        </div>
-        </div>
-        <div class="float-left">
-            <span>
-                发布时间: {{trade.create_time | date:'yyyy/MM/dd hh:mm:ss'}}
-            </span>
-            <span>
-                发布人: {{trade.creator_name}}
-            </span>
-            <span class="span-active" *ngIf="trade.active">
-                    正在进行
-            </span>
-            <span class="span-nonactive" *ngIf="!trade.active">
-                    暂停
-            </span>
-        </div>
-        <div class="float-right" *ngIf="isCreator()">
-            <button class="btn btn-primary" (click)="updateTrade()">修改</button>
-            <button class="btn btn-primary" (click)="changeActive()">{{trade.active}}</button>
-            <button class="btn btn-primary" (click)="deleteTrade()">删除</button>
-        </div>
-    </header>
-    -->
     <header class="detail-title">
         <div class="col-12" style="min-height: 4em">
             <div class="col-9 float-left">
@@ -37,7 +6,7 @@
             </div>
             <div class="float-right" style="line-height: 44px">
                 <a class="btn btn-link" [routerLink]="['/trade/user/' + trade.creator_id]">
-                    <i class="icon-chat">发送私信</i>
+                    发送私信<i class="icon-chat"></i>
                 </a>
                 <a title data-toggle="tooltip" data-placement="left" data-container="body" data-original-title="shouchang" href="javascript: void(0)" (click)="changelike()">
                     <i class="icon-heart star" [class.full]="trade.like" ></i>
@@ -57,7 +26,7 @@
             <span class="span-nonactive ml-3 float-right" *ngIf="!trade.active">
                     已结束
             </span>
-            <a href="javascript:;" class="btn btn-link float-right" *ngIf="isAdmin()" (click)="deleteTrade()">删除</a>
+            <a href="javascript:;" class="btn btn-link float-right" *ngIf="isAdmin()" (click)="deleteTrade()">删除<i class="icon-trash"></i></a>
             <a href="javascript:;" class="btn btn-link float-right" *ngIf="isCreator() && trade.active" (click)="tradeOver()">已结束</a>
             <a href="javascript:;" class="btn btn-link float-right" *ngIf="isCreator()" [routerLink]="['/trade/update/' + trade.id]">修改</a>
         </div>

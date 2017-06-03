@@ -45,7 +45,7 @@ export class TradeListComponent implements OnInit {
         this.tradeService.getTrades().subscribe(
             data => {
                 this.allTrade = data;
-                this.filterTrades = this.allTrade
+                this.filterTrades = this.allTrade;
                 if (this.filterTrades) {
                     this.collectionSize = this.filterTrades.length;
                     this.setPage(this.currentPage);
@@ -61,19 +61,15 @@ export class TradeListComponent implements OnInit {
         this.currentPage = page;
         let startIndex = (this.currentPage - 1) * 15;
         let endIndex = Math.min(startIndex + 15 - 1, this.collectionSize - 1);
-        console.log(this.allTrade);
-        console.log(this.currentPage);
-        console.log(startIndex);
-        console.log(endIndex);
         this.pagedTrades = this.filterTrades.slice(startIndex, endIndex + 1);
-        console.log(this.pagedTrades);
     }
 
     searchFilter() {
-        if (!this.allTrade)
+        if (!this.allTrade) {
             return;
+        }
         this.filterTrades = this.allTrade.filter((item: any) => {
-            if (this.searchString && (item.title.indexOf(this.searchString) == -1)) {
+            if (this.searchString && (item.title.indexOf(this.searchString) === -1)) {
                 return false;
             }
             if ((!item.active) && this.isActive) {
@@ -88,13 +84,14 @@ export class TradeListComponent implements OnInit {
         this.currentPage = 1;
         this.setPage(this.currentPage);
     }
-    
+
     selectType(value: any) {
         this.type = value;
         this.searchFilter();
     }
 
     searchChange(event: any) {
+        this.searchString = event;
         this.searchFilter();
     }
 

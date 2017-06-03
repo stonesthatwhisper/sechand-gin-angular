@@ -1,5 +1,5 @@
 <div>
-    <h2>Login</h2>
+    <h2>登录</h2>
     <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
             <label for="username">用户名</label>
